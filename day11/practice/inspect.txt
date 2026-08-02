@@ -1,0 +1,15 @@
+Exercise: Inspect an Ethiopian website
+
+Website inspected: Ethiopian Airlines
+
+What I found:
+
+<header>
+The top section of the website.
+It contains the Ethiopian Airlines logo, search options, and booking information.
+<nav>
+The navigation bar below or within the header.
+It contains links such as Book, Manage Booking, Experience, Travel Information, and Help.
+<footer>
+The bottom section of the page.
+It contains copyright information, contact details, social media links, and other useful links.
