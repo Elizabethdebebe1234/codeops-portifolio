@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ethio Telecom Registration</title>
+  </head>
+  <body>
+    <h1>Ethio Telecom Service Registration</h1>
+
+    <!--
+        POST is used because registration data is personal.
+        Unlike GET, POST does not place the submitted data in the URL.
+    -->
+    <form action="#" method="post">
+      <div>
+        <label for="fullname">Full Name:</label><br />
+        <input
+          type="text"
+          id="fullname"
+          name="fullname"
+          required
+          placeholder="Enter your full name"
+        />
+      </div>
+
+      <br />
+
+      <div>
+        <label for="email">Email Address:</label><br />
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          placeholder="example@email.com"
+        />
+      </div>
+
+      <br />
+
+      <div>
+        <label for="phone">Telephone:</label><br />
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          placeholder="+251912345678"
+          pattern="^\+2519\d{8}$"
+          title="Enter a valid Ethiopian phone number (e.g. +251912345678)"
+          required
+        />
+      </div>
+
+      <br />
+
+      <div>
+        <label for="branch">Select Branch:</label><br />
+        <select id="branch" name="branch" required>
+          <option value="">--Choose a Branch--</option>
+          <option value="Bole">Bole</option>
+          <option value="Kazanchis">Kazanchis</option>
+          <option value="Piassa">Piassa</option>
+        </select>
+      </div>
+
+      <br />
+
+      <button type="submit">Register</button>
+      <button type="reset">Clear Form</button>
+    </form>
+  </body>
+</html>
