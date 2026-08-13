@@ -1,0 +1,204 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f2f4f7;
+  color: #222;
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 650px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 35px;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+header h1 {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+header p {
+  color: #666;
+}
+
+/* Form */
+
+#add-form {
+  display: grid;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+}
+
+input:focus {
+  border-color: #333;
+}
+
+#add-form button {
+  padding: 13px;
+  border: none;
+  border-radius: 8px;
+  background: #222;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#add-form button:hover {
+  background: #444;
+}
+
+/* Shopping list */
+
+.shopping-section {
+  margin-top: 35px;
+}
+
+.shopping-section h2 {
+  margin-bottom: 15px;
+}
+
+#list {
+  list-style: none;
+}
+
+#list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+
+  padding: 15px;
+  margin-bottom: 10px;
+
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: #fafafa;
+
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+#list li:hover {
+  background: #f1f1f1;
+}
+
+.item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.item-name {
+  font-weight: bold;
+  font-size: 17px;
+}
+
+.item-price {
+  color: #666;
+}
+
+.del {
+  border: none;
+  background: #d9534f;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.del:hover {
+  background: #c9302c;
+}
+
+/* Bought state */
+
+#list li.bought {
+  opacity: 0.5;
+  text-decoration: line-through;
+}
+
+#list li.bought .del {
+  text-decoration: none;
+}
+
+/* Empty message */
+
+#empty-message {
+  text-align: center;
+  color: #888;
+  padding: 20px;
+}
+
+/* Total */
+
+.total-box {
+  margin-top: 25px;
+  padding: 18px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: #eeeeee;
+  border-radius: 10px;
+
+  font-size: 20px;
+}
+
+.total-box strong {
+  font-size: 22px;
+}
+
+/* Mobile */
+
+@media (max-width: 500px) {
+  body {
+    padding: 20px 10px;
+  }
+
+  .container {
+    padding: 25px 20px;
+  }
+
+  header h1 {
+    font-size: 26px;
+  }
+
+  #list li {
+    align-items: flex-start;
+  }
+}
