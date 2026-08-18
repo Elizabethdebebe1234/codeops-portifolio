@@ -1,0 +1,168 @@
+/* =========================
+   General Layout
+========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
+  background: #f4f6f8;
+  color: rgb(7, 54, 19);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+h2 {
+  margin-top: 35px;
+}
+
+/* =========================
+   Main Form
+========================= */
+
+#convert-form {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 25px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgb(7, 54, 19);
+
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+#amount,
+#currency {
+  flex: 1;
+  min-width: 120px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background: rgb(7, 54, 19);
+  color: white;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+/* =========================
+   Status
+========================= */
+
+#status {
+  text-align: center;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+/* Loading state */
+
+#status.loading {
+  color: #777;
+}
+
+/* Error state */
+
+#status.error {
+  color: #d32f2f;
+  background: #ffebee;
+  padding: 12px;
+  border-radius: 6px;
+}
+
+/* Success state */
+
+#status.success {
+  color: #2e7d32;
+}
+
+/* =========================
+   Conversion Result
+========================= */
+
+#result {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 15px;
+  background: white;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* =========================
+   Watchlist
+========================= */
+
+h2,
+#watchlist {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#watchlist {
+  padding: 0;
+  list-style: none;
+}
+
+#watchlist li {
+  background: white;
+  margin-bottom: 10px;
+  padding: 12px 15px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgb(7, 54, 19);
+}
+
+/* =========================
+   Empty State
+========================= */
+
+#watchlist:empty::before {
+  content: "Your watchlist is empty.";
+  display: block;
+  text-align: center;
+  padding: 20px;
+  color: #777;
+  background: #fafafa;
+  border: 1px dashed #ccc;
+  border-radius: 6px;
+}
+
+/* =========================
+   Responsive Design
+========================= */
+
+@media (max-width: 600px) {
+  body {
+    padding: 25px 15px;
+  }
+
+  #convert-form {
+    flex-direction: column;
+  }
+
+  #amount,
+  #currency,
+  button {
+    width: 100%;
+  }
+}
