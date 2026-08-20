@@ -5,7 +5,7 @@
     "category": "guitars",
     "price": 4500,
     "description": "Quality acoustic guitar for beginners and professionals.",
-    "image": "guitar.jpg"
+    "image": "images/acoustic-guitar.jpg"
   },
   {
     "id": 2,
@@ -13,7 +13,7 @@
     "category": "guitars",
     "price": 8500,
     "description": "Stylish electric guitar with a clear and powerful sound.",
-    "image": "electric-guitar.jpg"
+    "image": "images/electric-guitar.jpg"
   },
   {
     "id": 3,
@@ -21,7 +21,7 @@
     "category": "keyboards",
     "price": 12000,
     "description": "Portable digital keyboard suitable for practice and performances.",
-    "image": "keyboard.jpg"
+    "image": "images/keyboard.jpg"
   },
   {
     "id": 4,
@@ -29,7 +29,7 @@
     "category": "drums",
     "price": 15000,
     "description": "Compact electronic drum set for home practice and recording.",
-    "image": "drums.jpg"
+    "image": "images/drum-set.jpg"
   },
   {
     "id": 5,
@@ -37,7 +37,7 @@
     "category": "audio",
     "price": 6500,
     "description": "Professional microphone for recording vocals and instruments.",
-    "image": "microphone.jpg"
+    "image": "images/microphone.jpg"
   },
   {
     "id": 6,
@@ -45,7 +45,7 @@
     "category": "audio",
     "price": 3500,
     "description": "Portable speaker with clear sound for music and events.",
-    "image": "speaker.jpg"
+    "image": "images/speaker.jpg"
   },
   {
     "id": 7,
@@ -53,7 +53,7 @@
     "category": "accessories",
     "price": 600,
     "description": "Durable replacement strings for acoustic and electric guitars.",
-    "image": "guitar-strings.jpg"
+    "image": "images/guitar-strings.jpg"
   },
   {
     "id": 8,
@@ -61,7 +61,7 @@
     "category": "accessories",
     "price": 1200,
     "description": "Strong and lightweight stand for safely storing your guitar.",
-    "image": "guitar-stand.jpg"
+    "image": "images/guitar-stand.jpg"
   },
   {
     "id": 9,
@@ -69,6 +69,6 @@
     "category": "accessories",
     "price": 1800,
     "description": "Adjustable stand designed to securely hold your keyboard.",
-    "image": "keyboard-stand.jpg"
+    "image": "images/keyboard-stand.jpg"
   }
 ]

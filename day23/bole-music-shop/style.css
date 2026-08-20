@@ -12,6 +12,9 @@ header {
   background-color: #0a3d62;
   padding: 1rem;
   text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .search-box {
@@ -148,6 +151,13 @@ main {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: 1rem;
+}
+
+.product-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
 }
 @media (max-width: 799px) {
   .shop-layout {
