@@ -83,6 +83,34 @@
             </button>
           </div>
         </aside>
+
+        <section id="checkout-section">
+          <h2>Checkout</h2>
+
+          <form id="checkout" novalidate>
+            <label for="name"> Name </label>
+
+            <input id="name" type="text" placeholder="Enter your name" />
+
+            <label for="phone"> Phone (TeleBirr) </label>
+
+            <input id="phone" type="tel" placeholder="09xxxxxxxx" />
+
+            <label for="area"> Delivery area </label>
+
+            <select id="area">
+              <option value="Bole">Bole</option>
+              <option value="Kazanchis">Kazanchis</option>
+              <option value="Megenagna">Megenagna</option>
+            </select>
+
+            <p id="form-error" class="error" aria-live="polite"></p>
+
+            <button type="submit">Place Order</button>
+          </form>
+
+          <p id="confirmation" class="confirmation"></p>
+        </section>
       </div>
     </main>
 

@@ -87,9 +87,10 @@ header {
 }
 
 #cart {
-  background-color: #0a3d62;
+  background-color: #051723;
   border-radius: 5px;
   padding: 1rem;
+  height: 500px;
 }
 
 .shop-layout {
@@ -159,6 +160,23 @@ main {
   object-fit: cover;
   display: block;
 }
+
+.error {
+  color: #c62828;
+  margin: 10px 0;
+  min-height: 20px;
+}
+
+.confirmation {
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.no-results {
+  text-align: center;
+  padding: 30px;
+}
+
 @media (max-width: 799px) {
   .shop-layout {
     grid-template-columns: 1fr;

@@ -2,6 +2,9 @@
 // Bole Music Shop - app.js
 // ===============================
 
+const STORAGE_KEY = "boleMusicCart";
+const PHONE = /^(?:\+251|0)9\d{8}$/;
+
 // ---------- STATE ----------
 
 const state = {
@@ -17,9 +20,79 @@ const productsEl = document.querySelector("#products-container");
 const searchEl = document.querySelector("#search");
 const categoryEl = document.querySelector("#category");
 
+const form = document.querySelector("#checkout");
+const nameEl = document.querySelector("#name");
+const phoneEl = document.querySelector("#phone");
+const areaEl = document.querySelector("#area");
+const errEl = document.querySelector("#form-error");
+const confirmationEl = document.querySelector("#confirmation");
+
 const cartEl = document.querySelector("#cart-items");
 const cartTotalEl = document.querySelector("#cart-total");
 const checkoutButton = document.querySelector("#checkout-button");
+
+function validate({ name, phone }) {
+  if (!name.trim()) {
+    return "Please enter your name.";
+  }
+
+  if (!PHONE.test(phone.trim())) {
+    return "Enter a valid Ethiopian phone.";
+  }
+
+  if (state.cart.length === 0) {
+    return "Your cart is empty.";
+  }
+
+  return "";
+}
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const data = {
+    name: nameEl.value,
+    phone: phoneEl.value,
+    area: areaEl.value,
+  };
+
+  const msg = validate(data);
+
+  errEl.textContent = msg;
+
+  if (msg) {
+    return;
+  }
+
+  placeOrder(data);
+});
+
+function placeOrder(data) {
+  const order = {
+    ...data,
+    items: state.cart,
+    total: cartTotal(),
+    placedAt: new Date().toISOString(),
+  };
+
+  console.log("Order placed:", order);
+
+  state.cart = [];
+
+  save();
+
+  render();
+
+  showConfirmation(order);
+}
+
+function showConfirmation(order) {
+  confirmationEl.textContent = `Order placed — ${order.total.toLocaleString()} ETB, delivering to ${order.area}.`;
+
+  form.reset();
+
+  errEl.textContent = "";
+}
 
 // ---------- LOAD PRODUCTS ----------
 
@@ -46,6 +119,11 @@ async function loadProducts() {
 // ---------- RENDER PRODUCTS ----------
 
 function render() {
+  renderProducts();
+  renderCart();
+}
+
+function renderProducts() {
   const term = state.search.toLowerCase();
 
   const shown = state.products.filter((product) => {
@@ -68,8 +146,6 @@ function render() {
     productsEl.innerHTML = `
             <p class="no-results">No products found.</p>
         `;
-
-    renderCart();
 
     return;
   }
@@ -117,9 +193,23 @@ function render() {
 // ---------- SEARCH ----------
 
 searchEl.addEventListener("input", (e) => {
-  state.search = e.target.value;
+  state.search = e.target.value.toLowerCase();
+  renderProducts();
+});
 
-  render();
+searchEl.addEventListener("keydown", (e) => {
+  if (e.key !== "Enter") {
+    return;
+  }
+
+  const firstProduct = productsEl.querySelector(".product-card");
+
+  if (firstProduct) {
+    firstProduct.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+    });
+  }
 });
 
 // ---------- CATEGORY FILTER ----------
@@ -264,31 +354,35 @@ cartEl.addEventListener("click", (e) => {
 // ---------- CART TOTAL ----------
 
 function cartTotal() {
-  return state.cart.reduce(
-    (sum, item) => sum + Number(item.price) * item.qty,
-    0,
-  );
+  return state.cart.reduce((sum, item) => {
+    const price = Number(item?.price ?? 0);
+    const quantity = Number(item?.qty ?? 0);
+
+    return sum + price * quantity;
+  }, 0);
 }
 
 // ---------- SAVE CART ----------
 
 function save() {
-  localStorage.setItem("boleMusicCart", JSON.stringify(state.cart));
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(state.cart));
 }
 
 // ---------- LOAD CART ----------
 
 function load() {
-  const saved = localStorage.getItem("boleMusicCart");
+  const saved = localStorage.getItem(STORAGE_KEY);
 
-  if (saved) {
-    try {
-      state.cart = JSON.parse(saved);
-    } catch (error) {
-      console.error("Could not load saved cart:", error);
+  if (!saved) {
+    return;
+  }
 
-      state.cart = [];
-    }
+  try {
+    state.cart = JSON.parse(saved);
+  } catch (error) {
+    console.error("Could not load saved cart:", error);
+
+    state.cart = [];
   }
 }
 
