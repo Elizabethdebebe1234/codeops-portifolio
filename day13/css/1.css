@@ -1,0 +1,21 @@
+/* Custom Properties */
+
+:root {
+  --main-color: #2e8b57;
+  --text-color: white;
+  --space: 12px;
+  --main-font: Arial, sans-serif;
+}
+
+/* Button Styling */
+
+button {
+  background-color: var(--main-color);
+  color: var(--text-color);
+  padding: var(--space);
+  font-family: var(--main-font);
+
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}

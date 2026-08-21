@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Habesha Eatery Reservations</title>
+    <meta
+      name="description"
+      content="Reserve a table at Habesha Eatery in Addis Ababa."
+    />
+  </head>
+
+  <body>
+    <header>
+      <h1>Habesha Eatery</h1>
+    </header>
+
+    <nav>
+      <a href="index.html">Reservations</a> |
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <main>
+      <h2>Reserve a Table</h2>
+
+      <!-- POST is used because reservation information should not appear in the URL. -->
+      <form action="#" method="post">
+        <div>
+          <label for="name">Full Name</label><br />
+          <input type="text" id="name" name="name" required />
+        </div>
+
+        <br />
+
+        <div>
+          <label for="email">Email</label><br />
+          <input type="email" id="email" name="email" required />
+        </div>
+
+        <br />
+
+        <div>
+          <label for="phone">Phone Number</label><br />
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            pattern="^\+2519\d{8}$"
+            placeholder="+251912345678"
+            required
+          />
+        </div>
+
+        <br />
+
+        <div>
+          <label for="branch">Choose Branch</label><br />
+          <select id="branch" name="branch" required>
+            <option value="">Select Branch</option>
+            <option>Bole</option>
+            <option>Kazanchis</option>
+            <option>Piassa</option>
+          </select>
+        </div>
+
+        <br />
+
+        <button type="submit">Reserve</button>
+      </form>
+
+      <hr />
+
+      <h2>Menu</h2>
+
+      <table border="1">
+        <caption>
+          Habesha Eatery Menu (ETB)
+        </caption>
+
+        <thead>
+          <tr>
+            <th scope="col">Food</th>
+            <th scope="col">Price (ETB)</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Doro Wot</td>
+            <td>350</td>
+          </tr>
+
+          <tr>
+            <td>Kitfo</td>
+            <td>300</td>
+          </tr>
+
+          <tr>
+            <td>Tibs</td>
+            <td>280</td>
+          </tr>
+
+          <tr>
+            <td>Shiro</td>
+            <td>180</td>
+          </tr>
+
+          <tr>
+            <td>Firfir</td>
+            <td>170</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <hr />
+
+      <h2>Our Restaurant</h2>
+
+      <figure>
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Ethiopian_food.jpg"
+          alt="Traditional Ethiopian food served on injera"
+          width="400"
+        />
+
+        <figcaption>
+          Traditional Ethiopian food served at Habesha Eatery.
+        </figcaption>
+      </figure>
+
+      <h2>Location</h2>
+
+      <iframe
+        src="https://www.google.com/maps?q=Bole+Addis+Ababa&output=embed"
+        width="400"
+        height="300"
+        title="Map showing Habesha Eatery location"
+      >
+      </iframe>
+    </main>
+
+    <footer>
+      <p>Habesha Eatery - Bole, Addis Ababa</p>
+    </footer>
+  </body>
+</html>

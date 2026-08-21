@@ -1,0 +1,14 @@
+order 1    Kitfo + Tibs + Doro Wot
+300 + 280 + 350 = 930
+10% discount → 837
+15% VAT → 962.55
+
+order 2  Doro Wot + Shiro
+350 + 180 = 530
+10% discount → 477
+15% VAT → 548.55
+
+order 3  Kitfo + Tibs + Shiro
+300 + 280 + 180 = 760 ETB
+10% discount → 684 ETB
+15% VAT → 786.60 ETB

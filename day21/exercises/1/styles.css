@@ -1,0 +1,124 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f7f9;
+  color: #222;
+}
+
+.container {
+  width: 90%;
+  max-width: 700px;
+  margin: 50px auto;
+  text-align: center;
+}
+
+h1 {
+  font-size: 45px;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 20px;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 30px 0;
+}
+
+input {
+  flex: 1;
+  padding: 15px;
+  font-size: 18px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+button {
+  padding: 15px 25px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  background-color: #333;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+.loading {
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: 40px;
+}
+
+.error {
+  color: #e53935;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 40px;
+}
+
+.country-card {
+  background-color: white;
+  padding: 30px;
+  margin-top: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.country-card h2 {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.country-card img {
+  width: 180px;
+  max-height: 120px;
+  object-fit: contain;
+  margin-bottom: 20px;
+}
+
+.fact {
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+  padding: 15px 0;
+  border-bottom: 1px solid #ddd;
+  font-size: 18px;
+}
+
+.fact strong {
+  margin-right: 20px;
+}
+
+/* Theme toggle */
+body.dark {
+  background-color: #222;
+  color: white;
+}
+
+body.dark .country-card {
+  background-color: #333;
+  color: white;
+}
+
+body.dark input {
+  background-color: #444;
+  color: white;
+  border-color: #666;
+}
+
+#themeBtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
