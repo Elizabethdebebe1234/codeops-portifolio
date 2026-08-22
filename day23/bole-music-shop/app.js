@@ -271,83 +271,119 @@ function renderCart() {
   cartEl.innerHTML = "";
 
   // Empty cart
-
   if (state.cart.length === 0) {
     cartEl.innerHTML = `
-            <p id="empty-cart">
-                Your cart is empty.
-            </p>
-        `;
+      <p id="empty-cart">
+        Your cart is empty.
+      </p>
+    `;
 
     cartTotalEl.textContent = "0 ETB";
-
     checkoutButton.disabled = true;
 
     return;
   }
 
   // Create cart items
-
   state.cart.forEach((item) => {
     const li = document.createElement("li");
 
     li.dataset.id = item.id;
+    li.className = "cart-line";
 
     li.innerHTML = `
-            <div class="cart-item">
+      <div class="cart-item">
 
-                <strong>
-                    ${item.name}
-                </strong>
+        <div class="cart-item-info">
+          <strong>${item.name}</strong>
 
-                <span>
-                    ${item.qty} ×
-                    ${Number(item.price).toLocaleString()} ETB
-                </span>
+          <span class="cart-price">
+            ${Number(item.price).toLocaleString()} ETB each
+          </span>
 
-                <button
-                    class="rm"
-                    type="button"
-                >
-                    Remove
-                </button>
+          <div class="cart-controls">
 
-            </div>
-        `;
+            <button
+              class="qty-btn decrease"
+              type="button"
+            >
+              −
+            </button>
+
+            <span class="cart-qty">
+              ${item.qty}
+            </span>
+
+            <button
+              class="qty-btn increase"
+              type="button"
+            >
+              +
+            </button>
+
+          </div>
+
+          <button
+            class="rm"
+            type="button"
+          >
+            Remove
+          </button>
+
+        </div>
+
+        <strong class="cart-item-total">
+          ${(Number(item.price) * item.qty).toLocaleString()} ETB
+        </strong>
+
+      </div>
+    `;
 
     cartEl.appendChild(li);
   });
 
   // Show total
-
   cartTotalEl.textContent = `${cartTotal().toLocaleString()} ETB`;
 
   // Enable checkout
-
   checkoutButton.disabled = false;
 }
-
 // ---------- REMOVE FROM CART ----------
 
 cartEl.addEventListener("click", (e) => {
-  if (!e.target.matches(".rm")) {
+  const li = e.target.closest("li");
+
+  if (!li) {
     return;
   }
 
-  // Get product ID
-
-  const li = e.target.closest("li");
-
   const id = Number(li.dataset.id);
+  const item = state.cart.find((item) => Number(item.id) === id);
 
-  // Remove item
+  if (!item) {
+    return;
+  }
 
-  state.cart = state.cart.filter((item) => Number(item.id) !== id);
+  // Increase quantity
+  if (e.target.matches(".increase")) {
+    item.qty++;
+  }
 
-  // Save and update
+  // Decrease quantity
+  if (e.target.matches(".decrease")) {
+    item.qty--;
+
+    if (item.qty <= 0) {
+      state.cart = state.cart.filter((item) => Number(item.id) !== id);
+    }
+  }
+
+  // Remove completely
+  if (e.target.matches(".rm")) {
+    state.cart = state.cart.filter((item) => Number(item.id) !== id);
+  }
 
   save();
-
   render();
 });
 
