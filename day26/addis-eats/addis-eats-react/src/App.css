@@ -1,0 +1,104 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f8f3e8;
+  color: #2d241f;
+}
+
+.header {
+  background-color: #7b1e1e;
+  color: white;
+  padding: 25px 60px;
+  text-align: center;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 36px;
+}
+
+.header p {
+  margin: 8px 0 0;
+  font-size: 17px;
+}
+
+.menu {
+  max-width: 1100px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+.hero {
+  text-align: center;
+  padding: 30px;
+  margin-bottom: 40px;
+  background-color: #fff;
+  border-radius: 12px;
+}
+
+.hero h2 {
+  margin-top: 0;
+  font-size: 30px;
+}
+
+.hero p {
+  font-size: 17px;
+}
+
+.menu-section h2 {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 25px;
+}
+
+.dishes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.dish {
+  background-color: white;
+  padding: 25px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dish h3 {
+  margin: 0 0 12px;
+  font-size: 22px;
+}
+
+.dish p {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #7b1e1e;
+}
+
+footer {
+  background-color: #2d241f;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+@media (max-width: 768px) {
+  .dishes {
+    grid-template-columns: 1fr;
+  }
+
+  .header {
+    padding: 20px;
+  }
+
+  .header h1 {
+    font-size: 30px;
+  }
+}
