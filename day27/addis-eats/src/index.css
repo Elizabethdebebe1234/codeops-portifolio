@@ -1,0 +1,57 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f1e8;
+  color: #333;
+}
+
+#root {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #7b1e1e;
+  margin-bottom: 30px;
+}
+
+select {
+  display: block;
+  margin: 0 auto 30px;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: 2px solid #7b1e1e;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  margin-bottom: 15px;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+  margin: 0 0 8px;
+  color: #7b1e1e;
+}
+
+.card p {
+  margin: 0 0 10px;
+  font-size: 18px;
+}
+
+.card span {
+  display: inline-block;
+  padding: 5px 10px;
+  background: #ffe0e0;
+  color: #b00000;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: bold;
+}
