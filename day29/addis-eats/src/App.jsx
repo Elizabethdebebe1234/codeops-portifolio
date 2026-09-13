@@ -1,23 +1,15 @@
-import { useState } from "react";
 import Menu from "./Menu";
 import OrderForm from "./OrderForm";
+import Header from "./header";
 
 function App() {
-  const [total, setTotal] = useState(0);
-
-  function handleAdd(price) {
-    setTotal((currentTotal) => currentTotal + price);
-  }
-
   return (
     <div>
+      <Header />
+
       <h1>🍽️ Addis Eats</h1>
 
-      <Menu onAdd={handleAdd} />
-
-      <div className="order-total">
-        <h2>Order Total: {total} ETB</h2>
-      </div>
+      <Menu />
 
       <OrderForm />
     </div>

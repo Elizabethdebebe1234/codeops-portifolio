@@ -1,5 +1,6 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 function Dish({ id, name, price, spicy, currency = "ETB", onAdd }) {
   const [count, setCount] = useState(0);
@@ -18,7 +19,9 @@ function Dish({ id, name, price, spicy, currency = "ETB", onAdd }) {
 
   return (
     <div>
-      <h3>{name}</h3>
+      <Link to={`/menu/${id}`}>
+        <h3>{name}</h3>
+      </Link>
 
       <p>
         {price} {currency}
