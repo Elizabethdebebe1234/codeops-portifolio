@@ -1,99 +1,195 @@
-# Addis Eats 🍽️
+# 🍽️ Addis Eats
 
-A simple Ethiopian food menu built with React. This project demonstrates React props, PropTypes validation, conditional rendering, component composition, category filtering, empty states, and stable list keys.
+Addis Eats is a React-based Ethiopian food ordering web application.  
+It allows customers to browse Ethiopian dishes, view dish details, add items to a shopping cart, create an account, sign in, and prepare an order for delivery.
 
-## Features
 
-- 🍛 Ethiopian food menu
-- 🧩 Reusable `Dish` component
-- ✅ PropTypes validation
-- 💰 Default currency set to ETB
-- 🌶️ Conditional "Spicy" badge
-- 🃏 Reusable `Card` wrapper component
-- 🔍 Category filtering
-- 📭 Empty state when no dishes match
-- 🔑 Stable React keys using each dish's `id`
-- 🎨 Simple CSS styling
+---
 
-## Technologies Used
+## 📌 Project Features
 
-- React
-- JavaScript
-- JSX
-- CSS
-- PropTypes
-- Vite
+### 🏠 Home Page
+- Welcome section for Addis Eats
+- Introduction to the restaurant
+- Navigation to the main pages
+- Easy access to the menu and checkout
 
-## Menu Categories
+### 🍽️ Menu
+- Displays 30 Ethiopian food products
+- Shows:
+  - Dish name
+  - Price
+  - Category
+  - Spicy indicator
+  - Food image
+  - Description
+- Products are loaded from a JSON data source
 
-- Wot
-- Vegetarian
-- Tibs
+### 🔎 Menu Filtering
+Customers can filter dishes by category:
 
-## Getting Started
+- All
+- Main
+- Vegan
+- Grill
 
-Clone the repository and install the dependencies:
+### 🛒 Shopping Cart
+Customers can:
 
-```bash
-npm install
-```
+- Add dishes to the cart
+- View the number of items in the cart
+- Remove individual dishes
+- Clear the entire cart
+- View the total price
+- Keep cart data saved using Zustand persistence
 
-Start the development server:
+### 📄 Dynamic Dish Details
+Each dish has its own dynamic page.
 
-```bash
-npm run dev
-```
+Example:
 
-Open the local URL shown in the terminal to view the application.
+`/menu/1`
 
-## Project Structure
+The page displays:
+
+- Dish name
+- Price
+- Category
+- Spicy information
+- Dish details
+
+React Router dynamic routes are used to display the correct dish based on its ID.
+
+### 👤 Authentication
+
+Addis Eats includes a frontend authentication system.
+
+Customers can:
+
+- Create a new account
+- Register using an email or phone number
+- Create a password
+- Confirm their password
+- Sign in using email or phone number
+- Sign out
+- Remain signed in after refreshing the page
+
+Authentication information is persisted locally for this project demonstration.
+
+> Note: This is a frontend demonstration. A production application should use a secure backend authentication system and should never store plaintext passwords in localStorage.
+
+### 🔐 Protected Checkout
+
+The checkout page is protected using a `RequireAuth` component.
+
+If a customer tries to access checkout without signing in:
+
+`/checkout`
+
+they are redirected to:
+
+`/signin`
+
+After successful authentication, they can continue to checkout.
+
+### 💳 Delivery Information
+
+The checkout page includes:
+
+- Customer name
+- Phone number
+- Delivery area
+- Ethiopian phone number validation
+- TeleBirr payment button
+
+Supported delivery areas include:
+
+- Bole
+- Kazanchis
+- Megenagna
+
+---
+
+## 🧠 State Management
+
+The project demonstrates multiple React state-management concepts.
+
+### Zustand
+
+Zustand is used to manage the shopping cart.
+
+The cart store handles:
+
+- Cart items
+- Adding items
+- Removing items
+- Clearing the cart
+- Persisting cart information
+
+The store is located in:
+
+`src/store/cartStore.js`
+
+### React Context API
+
+Context API is used for authentication.
+
+The authentication context provides:
+
+- Current user
+- Register
+- Login
+- Logout
+
+The main authentication file is:
+
+`src/AuthContext.jsx`
+
+### React useState
+
+`useState` is used for local component state such as:
+
+- Form inputs
+- Authentication forms
+- Password visibility
+- Loading states
+- Error messages
+- Search/filter state
+
+---
+
+## 🌐 API / Data Fetching
+
+The project uses a custom `useFetch` hook.
+
+The hook handles:
+
+- Fetching data
+- Loading state
+- Error state
+- AbortController
+- Updating data when the URL changes
+
+The hook is located at:
+
+`src/hooks/useFetch.js`
+
+Menu data is loaded from:
+
+`public/dishes.json`
+
+---
+
+## 🧭 Routing
+
+React Router is used for navigation.
+
+Main routes include:
 
 ```text
-src/
-├── App.jsx
-├── Card.jsx
-├── Dish.jsx
-├── index.css
-└── main.jsx
-```
-
-## React Concepts Demonstrated
-
-### Props
-
-The `Dish` component receives:
-
-- `name`
-- `price`
-- `spicy`
-- `currency`
-
-### PropTypes
-
-`name` and `price` are required, while `spicy` is optional.
-
-### Conditional Rendering
-
-The spicy badge is rendered only when `spicy` is a boolean and its value is `true`.
-
-### Filtering
-
-The menu can be filtered by category using React state.
-
-### Empty State
-
-When no dishes match the selected category, the application displays:
-
-> No dishes found in this category.
-
-### Stable Keys
-
-Each dish is rendered using its unique `id` as the React key.
-
-## Author
-
-Elizabeth Debebe
-
-## Project Status
-
-Completed as part of the React learning milestone on props, validation, and rendering patterns.
+/
+ /menu
+ /menu/:id
+ /checkout
+ /signin
+ *
