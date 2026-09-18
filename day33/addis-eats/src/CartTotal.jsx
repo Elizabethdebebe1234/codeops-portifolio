@@ -5,5 +5,5 @@ export default function CartTotal() {
     state.items.reduce((sum, item) => sum + item.price, 0),
   );
 
-  return <h3>Total: {total} ETB</h3>;
+  return <h3 className="cart-total">Total: {total} ETB</h3>;
 }

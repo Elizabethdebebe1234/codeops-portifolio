@@ -2,7 +2,7 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-function Dish({ id, name, price, spicy, currency = "ETB", onAdd }) {
+function Dish({ id, name, price, spicy, currency = "ETB", image, onAdd }) {
   const [count, setCount] = useState(0);
 
   function handleAdd() {
@@ -14,25 +14,34 @@ function Dish({ id, name, price, spicy, currency = "ETB", onAdd }) {
       price,
       spicy,
       currency,
+      image,
     });
   }
 
   return (
-    <div>
-      <Link to={`/menu/${id}`}>
-        <h3>{name}</h3>
-      </Link>
+    <article className="dish-card">
+      {image && <img src={image} alt={name} className="dish-image" />}
 
-      <p>
-        {price} {currency}
-      </p>
+      <div className="dish-content">
+        <Link to={`/menu/${id}`} className="dish-title">
+          <h3>{name}</h3>
+        </Link>
 
-      {typeof spicy === "boolean" && spicy && <span>🌶️ Spicy</span>}
+        <p className="price">
+          {price} {currency}
+        </p>
 
-      <p>Added: {count}</p>
+        {typeof spicy === "boolean" && spicy && (
+          <span className="spicy">🌶️ Spicy</span>
+        )}
 
-      <button onClick={handleAdd}>Add</button>
-    </div>
+        <p className="added">Added: {count}</p>
+
+        <button onClick={handleAdd} className="add-button">
+          Add to Cart
+        </button>
+      </div>
+    </article>
   );
 }
 
@@ -42,11 +51,14 @@ Dish.propTypes = {
   price: PropTypes.number.isRequired,
   spicy: PropTypes.bool,
   currency: PropTypes.string,
+  image: PropTypes.string,
   onAdd: PropTypes.func.isRequired,
 };
 
 Dish.defaultProps = {
   currency: "ETB",
+  spicy: false,
+  image: "",
 };
 
 export default Dish;

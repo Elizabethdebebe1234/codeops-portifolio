@@ -22,6 +22,7 @@ export function useFetch(url) {
         }
 
         const result = await response.json();
+
         setData(result);
       } catch (err) {
         if (err.name !== "AbortError") {
@@ -39,5 +40,9 @@ export function useFetch(url) {
     };
   }, [url]);
 
-  return { data, loading, error };
+  return {
+    data,
+    loading,
+    error,
+  };
 }

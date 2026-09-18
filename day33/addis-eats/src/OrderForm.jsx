@@ -1,5 +1,5 @@
-import { useState, useContext } from "react";
-import { CartContext } from "./cart/CartProvider";
+import { useState } from "react";
+import { useCartStore } from "./store/cartStore";
 
 function OrderForm() {
   const [form, setForm] = useState({
@@ -8,106 +8,116 @@ function OrderForm() {
     area: "Bole",
   });
 
-  const { items, dispatch, total } = useContext(CartContext);
+  const items = useCartStore((state) => state.items);
 
-  function handleChange(e) {
-    const { name, value } = e.target;
+  const removeItem = useCartStore((state) => state.removeItem);
 
-    setForm({
-      ...form,
+  const clear = useCartStore((state) => state.clear);
+
+  const total = items.reduce((sum, item) => sum + item.price, 0);
+
+  function handleChange(event) {
+    const { name, value } = event.target;
+
+    setForm((currentForm) => ({
+      ...currentForm,
       [name]: value,
-    });
+    }));
   }
 
   const validPhone = /^(?:\+251|0)9\d{8}$/.test(form.phone);
 
-  function handleSubmit(e) {
-    e.preventDefault();
+  function handleSubmit(event) {
+    event.preventDefault();
 
     alert(`Order for ${form.name} will be delivered to ${form.area}.`);
   }
 
   return (
-    <div className="order-form">
-      {/* CART */}
-      <div className="cart">
-        <h2>Your Cart</h2>
+    <section className="checkout">
+      <h1>Checkout</h1>
 
-        {items.length === 0 ? (
-          <p>Your cart is empty.</p>
-        ) : (
-          <>
-            {items.map((dish) => (
-              <div key={dish.id} className="cart-item">
-                <span>
-                  {dish.name} — {dish.price} ETB
-                </span>
+      <div className="checkout-grid">
+        <div className="cart">
+          <h2>Your Cart</h2>
 
-                <button
-                  type="button"
-                  onClick={() =>
-                    dispatch({
-                      type: "remove",
-                      id: dish.id,
-                    })
-                  }
-                >
-                  Remove
-                </button>
-              </div>
-            ))}
+          {items.length === 0 ? (
+            <p>Your cart is empty.</p>
+          ) : (
+            <>
+              {items.map((dish, index) => (
+                <div key={`${dish.id}-${index}`} className="cart-item">
+                  <span>
+                    {dish.name} — {dish.price} ETB
+                  </span>
 
-            <h3>Total: {total} ETB</h3>
+                  <button type="button" onClick={() => removeItem(dish.id)}>
+                    Remove
+                  </button>
+                </div>
+              ))}
+
+              <h3>Total: {total} ETB</h3>
+
+              <button type="button" onClick={clear} className="clear-button">
+                Clear Cart
+              </button>
+            </>
+          )}
+        </div>
+
+        <div className="delivery">
+          <h2>Delivery Information</h2>
+
+          <form onSubmit={handleSubmit}>
+            <label>
+              Name
+              <input
+                type="text"
+                name="name"
+                value={form.name}
+                onChange={handleChange}
+                placeholder="Your name"
+                required
+              />
+            </label>
+
+            <label>
+              Phone
+              <input
+                type="text"
+                name="phone"
+                value={form.phone}
+                onChange={handleChange}
+                placeholder="TeleBirr phone number"
+                required
+              />
+            </label>
+
+            {form.phone && !validPhone && (
+              <p className="error">Use 09XXXXXXXX or +2519XXXXXXXX</p>
+            )}
+
+            <label>
+              Delivery Area
+              <select name="area" value={form.area} onChange={handleChange}>
+                <option value="Bole">Bole</option>
+                <option value="Kazanchis">Kazanchis</option>
+                <option value="Megenagna">Megenagna</option>
+              </select>
+            </label>
 
             <button
-              type="button"
-              onClick={() =>
-                dispatch({
-                  type: "clear",
-                })
-              }
+              type="submit"
+              disabled={!validPhone || items.length === 0}
+              className="payment-button"
             >
-              Clear Cart
+              💳 Pay with TeleBirr
             </button>
-          </>
-        )}
+          </form>
+        </div>
       </div>
-
-      {/* DELIVERY FORM */}
-      <h2>Delivery Information</h2>
-
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="name"
-          value={form.name}
-          onChange={handleChange}
-          placeholder="Your name"
-        />
-
-        <input
-          type="text"
-          name="phone"
-          value={form.phone}
-          onChange={handleChange}
-          placeholder="TeleBirr phone number"
-        />
-
-        {form.phone && !validPhone && (
-          <p className="error">Use 09XXXXXXXX or +2519XXXXXXXX</p>
-        )}
-
-        <select name="area" value={form.area} onChange={handleChange}>
-          <option value="Bole">Bole</option>
-          <option value="Kazanchis">Kazanchis</option>
-          <option value="Megenagna">Megenagna</option>
-        </select>
-
-        <button type="submit" disabled={!validPhone}>
-          Pay with TeleBirr
-        </button>
-      </form>
-    </div>
+    </section>
   );
 }
 

@@ -8,24 +8,30 @@ export default function Cart() {
   const clear = useCartStore((state) => state.clear);
 
   return (
-    <div>
+    <div className="cart">
       <h2>Your Cart</h2>
 
       {items.length === 0 ? (
         <p>Your cart is empty.</p>
       ) : (
         <>
-          {items.map((item, index) => (
-            <div key={`${item.id}-${index}`}>
-              <span>
-                {item.name} - {item.price} ETB
-              </span>
+          <div className="cart-items">
+            {items.map((item, index) => (
+              <div key={`${item.id}-${index}`} className="cart-item">
+                <div>
+                  <strong>{item.name}</strong>
 
-              <button onClick={() => removeItem(item.id)}>Remove</button>
-            </div>
-          ))}
+                  <span>{item.price} ETB</span>
+                </div>
 
-          <button onClick={clear}>Clear Cart</button>
+                <button onClick={() => removeItem(item.id)}>Remove</button>
+              </div>
+            ))}
+          </div>
+
+          <button onClick={clear} className="clear-button">
+            Clear Cart
+          </button>
         </>
       )}
     </div>

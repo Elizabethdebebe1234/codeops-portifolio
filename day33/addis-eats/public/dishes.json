@@ -4,27 +4,269 @@
     "name": "Doro Wot",
     "price": 240,
     "category": "Main",
-    "spicy": true
+    "spicy": true,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCh-vNFPCN-mkWhcaYnaBOEVjF2xm5BgDxcBMP2V2SvA&s=10",
+    "description": "Traditional Ethiopian chicken stew made with berbere, onions, butter, and spices."
   },
   {
     "id": 2,
     "name": "Tibs",
     "price": 280,
     "category": "Grill",
-    "spicy": false
+    "spicy": true,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFSQHw29dtmek18OXRxhx_sz8OUlkr7z1eQX_A18LN2w&s=10",
+    "description": "Delicious Ethiopian grilled beef prepared with onions, peppers, and traditional spices."
   },
   {
     "id": 3,
     "name": "Shiro",
     "price": 130,
     "category": "Vegan",
-    "spicy": false
+    "spicy": false,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSI-KwkLEr4TvGxURe-ShdA-Ax9Z13urKGr0VY3By-A6Q&s=10",
+    "description": "Smooth Ethiopian chickpea stew seasoned with traditional spices and served with injera."
   },
   {
     "id": 4,
     "name": "Kitfo",
     "price": 320,
     "category": "Main",
-    "spicy": true
+    "spicy": true,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXOxveKmREQgpLYWwpShMACJD7xwqeQqN6fBAVxUBPVQ&s=10",
+    "description": "Traditional Ethiopian minced beef dish seasoned with mitmita and clarified butter."
+  },
+  {
+    "id": 5,
+    "name": "Misir Wot",
+    "price": 140,
+    "category": "Vegan",
+    "spicy": true,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiAvyq3vHC722i9_rbviRRpPov_RbSZ2MnsjPmyllXug&s=10",
+    "description": "Spicy Ethiopian red lentil stew cooked with berbere and aromatic spices."
+  },
+  {
+    "id": 6,
+    "name": "Gomen",
+    "price": 120,
+    "category": "Vegan",
+    "spicy": false,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_AWz02PiimMi8i-2J8fLzZ9ViFc54z_hlDyqRTXNORw&s=10",
+    "description": "Ethiopian collard greens cooked with garlic, onions, and traditional seasonings."
+  },
+  {
+    "id": 7,
+    "name": "Fossolia",
+    "price": 125,
+    "category": "Vegan",
+    "spicy": false,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyOzTdkkN2KnKTt0TLwT5lnsnH3MlepghcFpp1rcdB9A&s=10",
+    "description": "Fresh green beans and carrots cooked with onions, garlic, and Ethiopian spices."
+  },
+  {
+    "id": 8,
+    "name": "Atkilt",
+    "price": 135,
+    "category": "Vegan",
+    "spicy": false,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy0EHdv5n1qgClM6HSDeB-P790DXMIVWXiPek__brhlA&s=10",
+    "description": "A comforting Ethiopian vegetable stew made with cabbage, potatoes, carrots, and spices."
+  },
+  {
+    "id": 9,
+    "name": "Dirkosh Firfir",
+    "price": 150,
+    "category": "Main",
+    "spicy": true,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCEbmjz6y9EaAzoAFEHLhK5oYv1nZ5xpcjRBs5APvzPA&s=10",
+    "description": "Pieces of injera mixed with berbere sauce, clarified butter, and flavorful spices."
+  },
+  {
+    "id": 10,
+    "name": "Chechebsa",
+    "price": 160,
+    "category": "Main",
+    "spicy": false,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRT7wuTBms56b2wgFFYrKdSYbqr6hyWzIHug2JLRTy4Yg&s=10",
+    "description": "Traditional Ethiopian torn flatbread prepared with spiced butter and honey."
+  },
+  {
+    "id": 11,
+    "name": "Beyaynetu",
+    "price": 300,
+    "category": "Vegan",
+    "spicy": true,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjBHFySQCJrAQc3UexgGJihY1CsKkHxWROb59I5TW6mQ&s=10",
+    "description": "A colorful combination of Ethiopian vegetable and lentil dishes served together with injera."
+  },
+  {
+    "id": 12,
+    "name": "Dulet",
+    "price": 290,
+    "category": "Main",
+    "spicy": true,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXbUVLWHKH3Z8TefYUUHKZ0_HJJ44n3mbVxKt03vJm2g&s=10",
+    "description": "Traditional Ethiopian dish made with finely chopped meat, liver, peppers, and spices."
+  },
+  {
+    "id": 13,
+    "name": "Awaze Tibs",
+    "price": 310,
+    "category": "Grill",
+    "spicy": true,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeQCy0OigeyzrnNDFL0P6wt67KCZNyC3IxgfQCH31SkQ&s=10",
+    "description": "Grilled beef tibs served with a rich and spicy Ethiopian awaze sauce."
+  },
+  {
+    "id": 14,
+    "name": "Shekla Tibs",
+    "price": 340,
+    "category": "Grill",
+    "spicy": true,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRt6R7sjXGK_M0CJSwLtifWvKfaxTqLX7p8fT5TU-qQmQ&s=10",
+    "description": "Sizzling Ethiopian grilled meat served with peppers, onions, and traditional spices."
+  },
+  {
+    "id": 15,
+    "name": "Minchet Abish",
+    "price": 260,
+    "category": "Main",
+    "spicy": true,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYaWVhKMcOuESWuG4uxnJ9g7tAs2-nTlmxbvKQuCOV4w&s=10",
+    "description": "Spiced minced beef stew prepared with Ethiopian butter and aromatic berbere."
+  },
+  {
+    "id": 16,
+    "name": "Alicha Wot",
+    "price": 230,
+    "category": "Main",
+    "spicy": false,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmdwYx0iWNnhH8ejy39RIofuHtN_aprpNL9EZrYVwS7w&s=10",
+    "description": "Mild Ethiopian stew prepared with meat, turmeric, onions, garlic, and ginger."
+  },
+  {
+    "id": 17,
+    "name": "Siga Wot",
+    "price": 300,
+    "category": "Main",
+    "spicy": true,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4gGwvHqCrbbz8dY8Codk08tJRhgjTwibmWPnvIefTow&s=10",
+    "description": "Rich Ethiopian beef stew cooked slowly with berbere, onions, garlic, and spices."
+  },
+  {
+    "id": 18,
+    "name": "Gored Gored",
+    "price": 330,
+    "category": "Main",
+    "spicy": true,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhfNwlHP6NwCSW47wQxsJUfj-JlelxGGlDLF8N8cjw_g&s=10",
+    "description": "Traditional Ethiopian beef cubes seasoned with mitmita, butter, and aromatic spices."
+  },
+  {
+    "id": 19,
+    "name": "Yebeg Wot",
+    "price": 290,
+    "category": "Main",
+    "spicy": true,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIMF4KggdHEClPMhsHydeRDBuKdH2vFZaOPiqKnfFOLw&s=10",
+    "description": "Tender lamb cooked in a traditional Ethiopian berbere sauce with onions and spices."
+  },
+  {
+    "id": 20,
+    "name": "Yebeg Tibs",
+    "price": 320,
+    "category": "Grill",
+    "spicy": true,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSI-KyYB72367m2LQTNpQLtaY7uuClZ6P7cjVErp0f_KQ&s",
+    "description": "Tender lamb grilled with onions, peppers, rosemary, and Ethiopian spices."
+  },
+  {
+    "id": 21,
+    "name": "Kikil",
+    "price": 270,
+    "category": "Main",
+    "spicy": false,
+    "image": "data:image/jpeg;base64,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",
+    "description": "Traditional Ethiopian meat soup prepared with vegetables, herbs, and mild spices."
+  },
+  {
+    "id": 22,
+    "name": "Bula",
+    "price": 180,
+    "category": "Vegan",
+    "spicy": false,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8yUr7ys_M52u5NmAy7Vyoiodw4WZnyzDFexRoxWm2zw&s=10",
+    "description": "Traditional Ethiopian porridge prepared from nutritious bula flour and served warm."
+  },
+  {
+    "id": 23,
+    "name": "Genfo",
+    "price": 170,
+    "category": "Vegan",
+    "spicy": false,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQI_rMCI4PFJvrTog8ALQIJmeUUxH65pZJM_AC2S19wBw&s=10",
+    "description": "Traditional Ethiopian thick porridge served with a spiced butter and berbere mixture."
+  },
+  {
+    "id": 24,
+    "name": "Injera Firfir",
+    "price": 145,
+    "category": "Vegan",
+    "spicy": true,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjOEbtzfKJoBnHiIz-xRC0oUNyT6sHeOmYvzzt1dTSzw&s=10",
+    "description": "Shredded injera mixed with spicy berbere sauce and traditional Ethiopian seasonings."
+  },
+  {
+    "id": 25,
+    "name": "Tikel Gomen",
+    "price": 125,
+    "category": "Vegan",
+    "spicy": false,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROONItHQeVbBcRy6ympl9quhIBDV4gc0eP06ro3MCVyA&s=10",
+    "description": "Ethiopian cabbage and potato dish cooked with carrots, onions, and mild spices."
+  },
+  {
+    "id": 26,
+    "name": "Bozena Shiro",
+    "price": 240,
+    "category": "Main",
+    "spicy": true,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRI2mqTMIlCj5zs2KBdxWVWORslDp-9umM4fgFlHWV41g&s=10",
+    "description": "Rich Ethiopian shiro stew combined with tender pieces of beef and traditional spices."
+  },
+  {
+    "id": 27,
+    "name": "Egg Firfir",
+    "price": 180,
+    "category": "Main",
+    "spicy": true,
+    "image": "data:image/jpeg;base64,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",
+    "description": "Shredded injera prepared with eggs, berbere, onions, and Ethiopian spices."
+  },
+  {
+    "id": 28,
+    "name": "Special Tibs",
+    "price": 350,
+    "category": "Grill",
+    "spicy": true,
+    "image": "https://images.unsplash.com/photo-1558030006-450675393462?w=800",
+    "description": "Premium grilled beef prepared with peppers, onions, rosemary, and a special spice blend."
+  },
+  {
+    "id": 29,
+    "name": "Chicken Tibs",
+    "price": 270,
+    "category": "Grill",
+    "spicy": true,
+    "image": "https://images.unsplash.com/photo-1532550907401-a500c9a57435?w=800",
+    "description": "Tender chicken pieces grilled with onions, peppers, garlic, and Ethiopian spices."
+  },
+  {
+    "id": 30,
+    "name": "Vegetable Combo",
+    "price": 260,
+    "category": "Vegan",
+    "spicy": false,
+    "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800",
+    "description": "A delicious combination of Ethiopian vegetable dishes served together with fresh injera."
   }
 ]
