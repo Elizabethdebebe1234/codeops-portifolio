@@ -1,182 +1,168 @@
-# 🍽️ Addis Eats
+# 🍽️ Addis Eats — React Food Ordering App
 
-Addis Eats is a React-based Ethiopian food ordering web application.  
-It allows customers to browse Ethiopian dishes, view dish details, add items to a shopping cart, create an account, sign in, and prepare an order for delivery.
-
+A modern Ethiopian food ordering web application built with **React**. Addis Eats allows users to browse Ethiopian dishes, filter meals, view individual dish details, manage their cart, create an account, sign in, and complete a checkout order.
 
 ---
 
-## 📌 Project Features
+
+## 📌 Project Overview
+
+Addis Eats is a React-based food ordering application designed to demonstrate modern React development concepts including:
+
+* Component-based architecture
+* React Router
+* Dynamic routes
+* API/data fetching
+* Custom hooks
+* Zustand state management
+* Context API
+* Form validation
+* Protected routes
+* Local storage persistence
+* Responsive user interface
+* Accessibility features
+
+---
+
+## ✨ Features
 
 ### 🏠 Home Page
-- Welcome section for Addis Eats
-- Introduction to the restaurant
-- Navigation to the main pages
-- Easy access to the menu and checkout
 
-### 🍽️ Menu
-- Displays 30 Ethiopian food products
-- Shows:
-  - Dish name
-  - Price
-  - Category
-  - Spicy indicator
-  - Food image
-  - Description
-- Products are loaded from a JSON data source
+* Welcome section
+* Featured Ethiopian dishes
+* Navigation to the menu
+* Clean and responsive layout
 
-### 🔎 Menu Filtering
-Customers can filter dishes by category:
+### 🍛 Menu
 
-- All
-- Main
-- Vegan
-- Grill
+* Displays dishes fetched from `dishes.json`
+* Category filtering
+* Loading state
+* Error handling
+* Dish cards with images, names, prices, and categories
+
+### 🔎 Dish Details
+
+Each dish has its own dynamic page:
+
+```text
+/menu/:id
+```
+
+Users can view:
+
+* Dish image
+* Dish name
+* Price
+* Description
+* Category
+* Additional dish information
+* Add to Cart option
 
 ### 🛒 Shopping Cart
-Customers can:
 
-- Add dishes to the cart
-- View the number of items in the cart
-- Remove individual dishes
-- Clear the entire cart
-- View the total price
-- Keep cart data saved using Zustand persistence
+The cart is managed using **Zustand**.
 
-### 📄 Dynamic Dish Details
-Each dish has its own dynamic page.
+Users can:
 
-Example:
+* Add dishes
+* Increase quantity
+* Decrease quantity
+* Remove individual dishes
+* Clear the cart
+* View the total price
 
-`/menu/1`
+Cart data is persisted using Zustand's `persist` middleware.
 
-The page displays:
+### 🔐 Authentication
 
-- Dish name
-- Price
-- Category
-- Spicy information
-- Dish details
+Users can:
 
-React Router dynamic routes are used to display the correct dish based on its ID.
+* Create an account
+* Sign in
+* Sign out
+* Remain signed in using local storage
 
-### 👤 Authentication
+The checkout page is protected so users must sign in before placing an order.
 
-Addis Eats includes a frontend authentication system.
+### 💳 Checkout
 
-Customers can:
+The checkout form includes:
 
-- Create a new account
-- Register using an email or phone number
-- Create a password
-- Confirm their password
-- Sign in using email or phone number
-- Sign out
-- Remain signed in after refreshing the page
+* Full name
+* TeleBirr phone number
+* Delivery area
+* Optional delivery notes
 
-Authentication information is persisted locally for this project demonstration.
+The form includes:
 
-> Note: This is a frontend demonstration. A production application should use a secure backend authentication system and should never store plaintext passwords in localStorage.
+* Pure `validate(form)` validation function
+* Validation errors
+* Blur/touched field handling
+* `aria-invalid`
+* `aria-describedby`
+* `role="alert"`
+* Submitting state
+* Disabled submit button during submission
+* ETB total displayed in the button
+* First invalid field focus
+* Cart review during checkout
+* Quantity controls
+* Remove item controls
 
-### 🔐 Protected Checkout
+The order submission is simulated for demonstration purposes.
 
-The checkout page is protected using a `RequireAuth` component.
+> **Note:** This project does not connect to a real TeleBirr payment API. The checkout demonstrates the frontend order flow only.
 
-If a customer tries to access checkout without signing in:
+### ❌ 404 Page
 
-`/checkout`
-
-they are redirected to:
-
-`/signin`
-
-After successful authentication, they can continue to checkout.
-
-### 💳 Delivery Information
-
-The checkout page includes:
-
-- Customer name
-- Phone number
-- Delivery area
-- Ethiopian phone number validation
-- TeleBirr payment button
-
-Supported delivery areas include:
-
-- Bole
-- Kazanchis
-- Megenagna
+A custom 404 page is displayed when users visit an unknown route.
 
 ---
 
 ## 🧠 State Management
 
-The project demonstrates multiple React state-management concepts.
-
 ### Zustand
 
-Zustand is used to manage the shopping cart.
+Zustand manages the shopping cart state.
 
 The cart store handles:
 
-- Cart items
-- Adding items
-- Removing items
-- Clearing the cart
-- Persisting cart information
+```text
+Add Item
+Increase Quantity
+Decrease Quantity
+Remove Item
+Clear Cart
+```
 
-The store is located in:
+Cart state is persisted in the browser using Zustand's `persist` middleware.
 
-`src/store/cartStore.js`
+### Context API
 
-### React Context API
+The **AuthContext** manages authentication state including:
 
-Context API is used for authentication.
-
-The authentication context provides:
-
-- Current user
-- Register
-- Login
-- Logout
-
-The main authentication file is:
-
-`src/AuthContext.jsx`
-
-### React useState
-
-`useState` is used for local component state such as:
-
-- Form inputs
-- Authentication forms
-- Password visibility
-- Loading states
-- Error messages
-- Search/filter state
+* Current user
+* Registration
+* Login
+* Logout
 
 ---
 
-## 🌐 API / Data Fetching
+## 🌐 Data Fetching
 
-The project uses a custom `useFetch` hook.
+Dish information is loaded from:
 
-The hook handles:
+```text
+/public/dishes.json
+```
 
-- Fetching data
-- Loading state
-- Error state
-- AbortController
-- Updating data when the URL changes
+A custom `useFetch` hook is used to handle:
 
-The hook is located at:
-
-`src/hooks/useFetch.js`
-
-Menu data is loaded from:
-
-`public/dishes.json`
+* Fetching data
+* Loading state
+* Error state
+* Returned data
 
 ---
 
@@ -184,12 +170,182 @@ Menu data is loaded from:
 
 React Router is used for navigation.
 
-Main routes include:
+### Available Routes
+
+| Route             | Description          |
+| ----------------- | -------------------- |
+| `/`               | Home page            |
+| `/menu`           | All dishes           |
+| `/menu/:id`       | Dynamic dish details |
+| `/signin`         | Sign in              |
+| `/create-account` | Create account       |
+| `/checkout`       | Protected checkout   |
+| `*`               | 404 Not Found        |
+
+---
+
+## 🔒 Protected Checkout
+
+The checkout route is protected using:
 
 ```text
-/
- /menu
- /menu/:id
- /checkout
- /signin
- *
+RequireAuth
+```
+
+If a user tries to access checkout without signing in, they are redirected to the Sign In page.
+
+After authentication, they can continue to checkout.
+
+---
+
+## 🛠️ Technologies Used
+
+* **React**
+* **Vite**
+* **React Router DOM**
+* **Zustand**
+* **JavaScript**
+* **HTML**
+* **CSS**
+* **Local Storage**
+* **JSON**
+
+---
+
+## 📁 Project Structure
+
+```text
+src/
+├── components/
+│   ├── Card.jsx
+│   ├── CategoryBar.jsx
+│   ├── Cart.jsx
+│   ├── CartBadge.jsx
+│   ├── CartTotal.jsx
+│   ├── Dish.jsx
+│   ├── DishList.jsx
+│   ├── Header.jsx
+│   └── Layout.jsx
+│
+├── hooks/
+│   └── useFetch.js
+│
+├── pages/
+│   ├── Home.jsx
+│   ├── Menu.jsx
+│   ├── DishPage.jsx
+│   ├── SignIn.jsx
+│   ├── CreateAccount.jsx
+│   ├── NotFound.jsx
+│   └── OrderForm.jsx
+│
+├── store/
+│   └── cartStore.js
+│
+├── utils/
+│   └── validate.js
+│
+├── AuthContext.jsx
+├── RequireAuth.jsx
+├── App.jsx
+├── main.jsx
+└── index.css
+
+public/
+└── dishes.json
+```
+
+---
+
+## ⚙️ Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/Elizabethdebebe1234/ibt-projects-and-classes.git
+```
+
+Navigate to the project:
+
+```bash
+cd ibt-projects-and-classes/day34/addis-eats
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+The application will then be available through the local Vite development URL.
+
+---
+
+## 🧪 Testing the Application
+
+To test the checkout:
+
+1. Open the Menu.
+2. Add one or more dishes to the cart.
+3. Open the Cart.
+4. Continue to Checkout.
+5. Sign in or create an account.
+6. Review the cart.
+7. Test the `+` and `−` quantity controls.
+8. Test removing an item.
+9. Enter valid delivery information.
+10. Submit the order.
+11. Confirm the successful order message.
+
+---
+
+## ♿ Accessibility
+
+The checkout form includes accessibility features such as:
+
+* Proper `<label>` elements
+* `aria-invalid`
+* `aria-describedby`
+* `role="alert"`
+* Keyboard-focus management
+* Focus on the first invalid field
+
+---
+
+## 📚 Learning Outcomes
+
+Through this project, I practiced:
+
+* Building reusable React components
+* Managing application state with Zustand
+* Using Context API
+* Creating protected routes
+* Working with dynamic routes
+* Fetching local JSON data
+* Creating custom hooks
+* Building validated forms
+* Managing asynchronous submission states
+* Implementing accessible forms
+* Persisting state with local storage
+* Building responsive interfaces
+
+---
+
+## 👩‍💻 Author
+
+**Elizabeth Debebe**
+
+GitHub:
+https://github.com/Elizabethdebebe1234
+
+---
+
+## 📄 License
+
+This project was created for educational and learning purposes.
