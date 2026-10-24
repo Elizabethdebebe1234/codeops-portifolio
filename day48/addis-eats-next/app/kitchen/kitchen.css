@@ -1,0 +1,94 @@
+
+.kitchen-page {
+  min-height: 75vh;
+  padding: 48px 6%;
+  background: #f8f3e8;
+  color: #321515;
+}
+
+.kitchen-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+.kitchen-eyebrow {
+  color: #9b7025;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.kitchen-header h1 {
+  margin: 8px 0;
+  font-size: clamp(28px, 4vw, 40px);
+}
+
+.kitchen-header p {
+  color: #686868;
+}
+
+.kitchen-home-link {
+  padding: 11px 16px;
+  border: 1px solid #7b1e1e;
+  border-radius: 9px;
+  color: #7b1e1e;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.kitchen-welcome {
+  padding: 30px;
+  margin-bottom: 24px;
+  background: white;
+  border-radius: 18px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.05);
+}
+
+.kitchen-icon {
+  font-size: 38px;
+}
+
+.kitchen-welcome h2 {
+  margin: 12px 0;
+}
+
+.kitchen-welcome p,
+.kitchen-card p {
+  color: #686868;
+  line-height: 1.7;
+}
+
+.kitchen-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.kitchen-card {
+  padding: 24px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.04);
+}
+
+.kitchen-card > span {
+  font-size: 30px;
+}
+
+.kitchen-card h3 {
+  margin: 14px 0 8px;
+}
+
+@media (max-width: 760px) {
+  .kitchen-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .kitchen-page {
+    padding: 32px 5%;
+  }
+}
