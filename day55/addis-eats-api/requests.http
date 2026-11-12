@@ -1,0 +1,21 @@
+### 1. Get all dishes
+GET http://localhost:3000/api/dishes
+
+### 2. Get dish by ID
+GET http://localhost:3000/api/dishes/1
+
+### 3. Get missing dish (expect 404)
+GET http://localhost:3000/api/dishes/999
+
+### 4. Filter dishes by restaurant
+GET http://localhost:3000/api/dishes?restaurantId=1
+
+### 5. Create a dish
+POST http://localhost:3000/api/dishes
+Content-Type: application/json
+
+{
+  "name": "Special Kitfo",
+  "priceSantim": 25000,
+  "restaurantId": 1
+}
